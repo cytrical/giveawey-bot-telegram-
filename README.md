@@ -1,30 +1,30 @@
-🎁 Telegram Giveaway Bot
+### 🎁 Telegram Giveaway Bot
 
 Bot para gestionar sorteos en grupos de Telegram.
 Permite configurar título, descripción, imagen, duración, meta de miembros y arranque anticipado.
 
-🚀 Características
+## 🚀 Características
 
-Crear sorteos desde grupos con /newgift
+- Crear sorteos desde grupos con /newgift
 
-Configuración guiada en privado (título, descripción, imagen, duración, meta)
+- Configuración guiada en privado (título, descripción, imagen, duración, meta)
 
-Vista previa antes de publicar
+- Vista previa antes de publicar
 
-Arranque automático cuando el grupo llega a la meta
+- Arranque automático cuando el grupo llega a la meta
 
-Opción de inicio anticipado si faltan pocos
+- Opción de inicio anticipado si faltan pocos
 
-Botón inline para unirse y contador en tiempo real
+- Botón inline para unirse y contador en tiempo real
 
-Selección automática de ganador
+- Selección automática de ganador
 
-Mensajes de estado que se actualizan cada cierto tiempo
+- Mensajes de estado que se actualizan cada cierto tiempo
 
-Borrado automático de mensajes intermedios en la configuración
+- Borrado automático de mensajes intermedios en la configuración
 
 
-📖 Comandos disponibles
+## 📖 Comandos disponibles
 
 /start → Inicia el bot en privado.
 
@@ -36,9 +36,9 @@ Borrado automático de mensajes intermedios en la configuración
 
 ---
 
-📦 Instalación
+## 📦 Instalación
 
-🔹 Windows
+### 🔹 Windows
 
 1. Instalar Python (3.9 o superior).
 
@@ -62,7 +62,7 @@ python bot.py
 
 ---
 
-🔹 Linux / VPS / Hosting
+### 🔹 Linux / VPS / Hosting
 
 1. Instalar Python 3 y Git:
 
@@ -92,7 +92,7 @@ nohup python3 bot.py &
 
 ---
 
-🔹 Android (Termux)
+### 🔹 Android (Termux)
 
 1. Instalar Termux desde F-Droid o su web oficial.
 
@@ -124,17 +124,17 @@ python bot.py
 
 ---
 
-📜 Requisitos
+## 📜 Requisitos
 
-Python 3.9+
+- **Python 3.9+**
+- Librerías de Python indicadas en `requirements.txt`
 
-Librería pyTelegramBotAPI
+## 📂 requirements.txt
 
-
-📂 requirements.txt
-
-pyTelegramBotAPI
-
+pyTelegramBotAPI>=4.15.0
+Pillow>=10.0.0
+requests>=2.31.0
+python-dateutil>=2.9.0
 
 ---
 
