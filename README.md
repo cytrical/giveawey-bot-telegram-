@@ -134,8 +134,11 @@ python bot.py
 ## 📂 requirements.txt
 
 pyTelegramBotAPI>=4.15.0
+
 Pillow>=10.0.0
+
 requests>=2.31.0
+
 python-dateutil>=2.9.0
 
 ---
