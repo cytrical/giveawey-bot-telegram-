@@ -40,7 +40,7 @@ python bot.py
 
 
 
-🔹 Linux / VPS / Hosting
+### 🔹 Linux / VPS / Hosting
 
 1. Instalar Python 3 y git:
 
@@ -67,7 +67,7 @@ python3 bot.py
 
 nohup python3 bot.py &
 
-🔹 Android (Termux)
+### 🔹 Android (Termux)
 
 1. Instalar Termux desde F-Droid o su web oficial.
 
@@ -97,7 +97,7 @@ python bot.py
 
 ---
 
-📜 Requisitos
+## 📜 Requisitos
 
 Python 3.9+
 
@@ -111,7 +111,7 @@ pyTelegramBotAPI
 
 ---
 
-📜 Licencia
+## 📜 Licencia
 
 Este proyecto está bajo la licencia MIT.
 Puedes usarlo, modificarlo y distribuirlo libremente.
