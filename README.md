@@ -1,4 +1,4 @@
-### 🎁 Telegram Giveaway Bot
+# 🎁 Telegram Giveaway Bot
 
 Bot para gestionar sorteos en grupos de Telegram.
 Permite configurar título, descripción, imagen, duración, meta de miembros y arranque anticipado.
@@ -44,19 +44,20 @@ Permite configurar título, descripción, imagen, duración, meta de miembros y 
 
 
 2. Abrir CMD o PowerShell y ejecutar:
-
+ ```bash
 git clone https://github.com/usuario/telegram-giveaway-bot
 cd telegram-giveaway-bot
 pip install -r requirements.txt
+```
 
 
 3. Editar el archivo bot.py y poner tu TOKEN de BotFather.
 
 
 4. Ejecutar:
-
+ ```bash
 python bot.py
-
+```
 
 
 
@@ -65,30 +66,31 @@ python bot.py
 ### 🔹 Linux / VPS / Hosting
 
 1. Instalar Python 3 y Git:
-
+```bash
 sudo apt update && sudo apt install -y python3 python3-pip git
-
+```
 
 2. Descargar el proyecto:
-
+```bash
 git clone https://github.com/usuario/telegram-giveaway-bot
 cd telegram-giveaway-bot
 pip install -r requirements.txt
+```
 
 
 3. Editar el archivo bot.py y poner tu TOKEN.
 
 
 4. Ejecutar:
-
+```bash
 python3 bot.py
-
+```
 
 
 👉 Opcional: mantenerlo corriendo en background
-
+```bash
 nohup python3 bot.py &
-
+```
 
 ---
 
@@ -98,27 +100,27 @@ nohup python3 bot.py &
 
 
 2. Ejecutar:
-
+```bash
 pkg update && pkg upgrade -y
 pkg install python git -y
 pkg install clang make libjpeg-turbo -y   # recomendado
 pip install --upgrade pip setuptools wheel
-
+```
 
 3. Descargar el proyecto:
-
+```bash
 git clone https://github.com/usuario/telegram-giveaway-bot
 cd telegram-giveaway-bot
 pip install -r requirements.txt
-
+```
 
 4. Editar el archivo bot.py y poner tu TOKEN (puedes usar nano bot.py).
 
 
 5. Iniciar el bot:
-
+```bash
 python bot.py
-
+```
 
 
 
