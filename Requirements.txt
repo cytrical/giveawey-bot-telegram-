@@ -1,0 +1,2 @@
+pyTelegramBotAPI
+giveaway.json (is a local file is only optional)
