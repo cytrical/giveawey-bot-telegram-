@@ -48,16 +48,17 @@ sudo apt update && sudo apt install -y python3 python3-pip git
 
 
 2. Descargar el proyecto:
+   ```bash
+   git clone https://github.com/usuario/telegram-giveaway-bot
+   ```bash
+   cd telegram-giveaway-bot
+   ```bash
+   pip install -r requirements.txt
 
-git clone https://github.com/usuario/telegram-giveaway-bot
-cd telegram-giveaway-bot
-pip install -r requirements.txt
+4. Poner el TOKEN en bot.py.
 
 
-3. Poner el TOKEN en bot.py.
-
-
-4. Ejecutar:
+5. Ejecutar:
 
 python3 bot.py
 
@@ -73,16 +74,20 @@ nohup python3 bot.py &
 
 
 2. Ejecutar:
+   ```bash
+   pkg update && pkg upgrade -y
+   ```bash
+   pkg install python git -y
 
-pkg update && pkg upgrade -y
-pkg install python git -y
 
+4. Descargar el proyecto:
 
-3. Descargar el proyecto:
-
-git clone https://github.com/usuario/telegram-giveaway-bot
-cd telegram-giveaway-bot
-pip install -r requirements.txt
+   ```bash
+   git clone https://github.com/usuario/telegram-giveaway-bot
+   ```bash
+   cd telegram-giveaway-bot
+   ```bash
+   pip install -r requirements.txt
 
 
 4. Editar el TOKEN en bot.py (puedes usar nano bot.py).
