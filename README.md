@@ -45,7 +45,7 @@ Permite configurar título, descripción, imagen, duración, meta de miembros y 
 
 2. Abrir CMD o PowerShell y ejecutar:
  ```bash
-git clone https://github.com/usuario/telegram-giveaway-bot
+git clone https://github.com/cytrical/giveawey-bot-telegram-.git
 cd telegram-giveaway-bot
 pip install -r requirements.txt
 ```
@@ -72,7 +72,7 @@ sudo apt update && sudo apt install -y python3 python3-pip git
 
 2. Descargar el proyecto:
 ```bash
-git clone https://github.com/usuario/telegram-giveaway-bot
+git clone https://github.com/cytrical/giveawey-bot-telegram-.git
 cd telegram-giveaway-bot
 pip install -r requirements.txt
 ```
@@ -109,7 +109,7 @@ pip install --upgrade pip setuptools wheel
 
 3. Descargar el proyecto:
 ```bash
-git clone https://github.com/usuario/telegram-giveaway-bot
+git clone https://github.com/cytrical/giveawey-bot-telegram-.git
 cd telegram-giveaway-bot
 pip install -r requirements.txt
 ```
