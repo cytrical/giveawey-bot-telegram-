@@ -1,6 +1,6 @@
 import telebot
 from telebot import types
-import time, json, os, threading
+import time, json, os, threading, random   # 👈 añadí random
 
 TOKEN = "AQUI_TU_TOKEN"
 bot = telebot.TeleBot(TOKEN)
@@ -220,7 +220,6 @@ def update_message(gid):
     g = giveaways.get(gid)
     if not g or not g["published"]: return
 
-    # contar miembros reales del grupo
     try:
         members_count = bot.get_chat_members_count(g["group"])
     except:
@@ -234,7 +233,6 @@ def update_message(gid):
     text = ""
     markup = types.InlineKeyboardMarkup()
 
-    # Caso 1: Muy lejos de la meta
     if members_count < goal - early:
         text = (
             f"🚫 UN SORTEO EMPEZARÁ CUANDO SEAMOS {goal} PERSONAS\n"
@@ -243,7 +241,6 @@ def update_message(gid):
         )
         markup.add(types.InlineKeyboardButton("⏳ Aún no disponible", callback_data="wait"))
 
-    # Caso 2: Inicio anticipado (pero aún no en meta)
     elif members_count < goal:
         text = (
             f"🎉 <b>{g['title']}</b>\n\n"
@@ -253,7 +250,6 @@ def update_message(gid):
         )
         markup.add(types.InlineKeyboardButton("⏳ Aún no disponible", callback_data="wait"))
 
-    # Caso 3: Ya alcanzamos meta → empieza de verdad
     else:
         if not g.get("start_time"):
             g["start_time"] = time.time()
@@ -324,11 +320,19 @@ def end_cmd(message):
 def finish_giveaway(gid):
     g = giveaways[gid]
     g["active"] = False
-    if g["participants"]:
-        winner_id = g["participants"][0]
-        bot.send_message(g["group"], f"🎉 El ganador es: <a href='tg://user?id={winner_id}'>Ganador</a> 🎉", parse_mode="HTML")
+
+    # excluir al creador de la lista
+    valid_participants = [p for p in g["participants"] if p != g["creator"]]
+
+    if valid_participants:
+        winner_id = random.choice(valid_participants)   # 👈 aleatorio
+        bot.send_message(
+            g["group"],
+            f"🎉 El ganador es: <a href='tg://user?id={winner_id}'>Ganador</a> 🎉",
+            parse_mode="HTML"
+        )
     else:
-        bot.send_message(g["group"], "❌ Nadie participó en el sorteo.")
+        bot.send_message(g["group"], "❌ No hubo participantes válidos en el sorteo.")
     save_data()
 
 # ==================== Loop ====================
