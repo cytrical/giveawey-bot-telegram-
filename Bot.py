@@ -1,8 +1,8 @@
 import telebot
 from telebot import types
-import time, json, os, threading, random   # 👈 añadí random
+import time, json, os, threading, random   
 
-TOKEN = "AQUI_TU_TOKEN"
+TOKEN = "TOKEN AQUI"
 bot = telebot.TeleBot(TOKEN)
 
 DATA_FILE = "giveaways.json"
@@ -194,7 +194,7 @@ def publish(call):
     g = giveaways[gid]
     g["active"] = True
     g["published"] = True
-    g["start_time"] = None  # solo se fija cuando alcance meta
+    g["start_time"] = None  
     save_data()
     update_message(gid)
 
@@ -321,18 +321,25 @@ def finish_giveaway(gid):
     g = giveaways[gid]
     g["active"] = False
 
-    # excluir al creador de la lista
     valid_participants = [p for p in g["participants"] if p != g["creator"]]
 
     if valid_participants:
-        winner_id = random.choice(valid_participants)   # 👈 aleatorio
+        winner_id = random.choice(valid_participants)
+        winner = bot.get_chat(winner_id)
+        username = f"@{winner.username}" if winner.username else f"<a href='tg://user?id={winner_id}'>usuario</a>"
+
         bot.send_message(
             g["group"],
-            f"🎉 El ganador es: <a href='tg://user?id={winner_id}'>Ganador</a> 🎉",
-            parse_mode="HTML"
+            f"el ganador es:🎉 {username} 🎉",
+            parse_mode="HTML",
+            reply_to_message_id=g["msg_id"]
         )
     else:
-        bot.send_message(g["group"], "❌ No hubo participantes válidos en el sorteo.")
+        bot.send_message(
+            g["group"],
+            "❌ No hubo participantes válidos en el sorteo.",
+            reply_to_message_id=g["msg_id"]
+        )
     save_data()
 
 # ==================== Loop ====================
@@ -341,11 +348,35 @@ def check_giveaways():
     while True:
         now = time.time()
         for gid, g in list(giveaways.items()):
-            if g["active"] and g.get("start_time") and now >= g["end_real"]:
-                finish_giveaway(gid)
+            if g["active"] and g.get("start_time"):
+                remain = g["end_real"] - now
+
+                # ⏱️ Cuenta regresiva final (5, 4, 3, 2, 1)
+                if 0 < remain <= 5:
+                    sec = int(remain)
+                    bot.send_message(
+                        g["group"],
+                        f"{sec}...",
+                        reply_to_message_id=g["msg_id"]
+                    )
+                    time.sleep(1)
+                    if sec == 1:
+                        finish_giveaway(gid)
+                        continue
+
+                # Si el tiempo ya terminó
+                elif remain <= 0:
+                    finish_giveaway(gid)
+                    continue
+                else:
+                    update_message(gid)
+
             elif g["active"]:
                 update_message(gid)
-        time.sleep(30)
+
+        time.sleep(1)  # 🔁 Actualiza cada segundo
+
+# ==================== Inicio del bot ====================
 
 threading.Thread(target=check_giveaways, daemon=True).start()
 
